@@ -1,10 +1,10 @@
-# -*- coding: utf-8 -*- # noqa: E999
+""" Robot Framework Library to interect with RabbitMQ"""
 
 import json
 import logging
 from typing import Any, Dict, List, Optional, Tuple, Type, Union
 from urllib.parse import quote
-
+from socket import gaierror, error
 import pika
 import requests
 from pika import BaseConnection
@@ -16,10 +16,8 @@ from pika.exceptions import ChannelClosed, IncompatibleProtocolError
 from robot.api import logger
 from robot.utils import ConnectionCache
 from robot.libraries.BuiltIn import BuiltIn
-from socket import gaierror, error
 
 RabbitMqMessage = Union[Tuple[Dict[str, Any], Dict[str, Any], str], Tuple[None, None, None]]  # noqa: 993
-
 
 class RequestConnection(object):
     """This class contains settings to connect to RabbitMQ via HTTP."""
