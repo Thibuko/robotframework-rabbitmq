@@ -27,10 +27,10 @@ Library    Collections
 
 *** Test Cases ***
 Simple Test
-    Create Rabbitmq Connection    my_host_name    15672    5672    guest    guest    alias=rmq
-    ${overview}=    Overview
-    Log Dictionary    ${overview}
-    Close All Rabbitmq Connections
+... Create Rabbitmq Connection    my_host_name    15672    5672    guest    guest    alias=rmq
+... ${overview}=    Overview
+... Log Dictionary    ${overview}
+... Close All Rabbitmq Connections
 ```
 
 ## License
