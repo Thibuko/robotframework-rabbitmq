@@ -1,40 +1,40 @@
-"""Setup module for Robot Framework RabbitMq Library package."""
-
-# To use a consistent encoding
-from codecs import open
-from os import path
+import pathlib
 
 from setuptools import setup
 
-here = path.abspath(path.dirname(__file__))
-
-# Get the long description from the README file
-with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
-    long_description = f.read()
-
-# Get install requires from requirements.txt
-with open(path.join(here, 'requirements.txt')) as f:
-    requirements = f.read().splitlines()
+HERE = pathlib.Path(__file__).parent
+README = (HERE / "README.md").read_text()
+REQUIREMENTS = (HERE / "requirements.txt").read_text()
+CLASSIFIERS = """
+Development Status :: 3 - Alpha
+License :: OSI Approved :: Apache Software License
+Operating System :: OS Independent
+Programming Language :: Python
+Programming Language :: Python :: 3.7
+Programming Language :: Python :: 3.8
+Programming Language :: Python :: 3.9
+Programming Language :: Python :: 3.10
+Programming Language :: Python :: 3.11
+Framework :: Robot Framework
+Framework :: Robot Framework :: Library
+Topic :: Software Development :: Testing
+Topic :: Software Development :: Quality Assurance
+Topic :: Utilities
+Intended Audience :: Developers
+""".strip().splitlines()
 
 setup(
     name='robotframework-rabbitmq',
     version='3.0.1',
     description='A Robot Framework RabbitMq Library',
-    long_description=long_description,
+    long_description=README,
+    long_description_content_type="text/markdown",
     url='https://github.com/Thibuko/robotframework-rabbitmq',
     author='Matthieu Flemal',
     author_email='matthieu.flemal@gmail.com',
     license='Apache License 2.0',
-    classifiers=[
-        'Development Status :: 3 - Alpha',
-        'Intended Audience :: Developers',
-        'Topic :: Software Development :: Testing',
-        'License :: OSI Approved :: Apache Software License',
-        'Programming Language :: Python :: 3.10',
-        'Framework :: Robot Framework :: Library',
-    ],
+    classifiers=CLASSIFIERS,
     keywords='testing testautomation robotframework rabbitmq amqp',
     package_dir={'': 'src'},
-    py_modules=['RabbitMq'],
-    install_requires=requirements,
+    install_requires=REQUIREMENTS
 )
