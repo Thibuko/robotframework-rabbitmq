@@ -102,3 +102,4 @@ ENV/
 
 # PyCharm IDE
 .idea/
+.vscode/
